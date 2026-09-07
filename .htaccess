@@ -1,3 +1,19 @@
 # CORESERVER (Apache) 用: 存在しないURLに独自404ページを返します。
 # ErrorDocument の内部処理では元の HTTP 404 ステータスが維持されます。
 ErrorDocument 404 /404.html
+
+# ディレクトリ内のファイル一覧を表示しません。
+Options -Indexes
+
+# この静的サイトでは外部のスクリプト、フォント、iframe、フォーム送信を使用しません。
+# 将来、予約フォームを埋め込む／外部へ送信する場合は、該当の送信先だけを
+# form-action、frame-src、connect-src へ明示的に追加してください。
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+</IfModule>
