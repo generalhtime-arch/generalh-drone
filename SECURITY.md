@@ -13,8 +13,17 @@
 - MIMEタイプ推測の無効化
 - 不要なブラウザ機能（カメラ、マイク、位置情報、決済など）の無効化
 - リファラー情報の最小化
+- `.git`、`.env`、README、SECURITY、`tools/`、作業用添付フォルダーなどの公開拒否
+- GET／HEAD以外のHTTPメソッドの拒否
 
 本番サーバーが `mod_headers` を利用できない場合でも、ヘッダー設定部分は安全に読み飛ばされます。その場合は、CORESERVERまたはCloudflare側で同じレスポンスヘッダーを設定します。
+
+`mod_rewrite` が利用できない場合は、公開不要ファイルとHTTPメソッドの拒否規則を適用できません。CORESERVERでは通常利用できますが、本番反映後に必ず下記のURLで403または404になることを確認します。
+
+- `https://drone.general-h.com/.git/HEAD`
+- `https://drone.general-h.com/README.md`
+- `https://drone.general-h.com/SECURITY.md`
+- `https://drone.general-h.com/tools/enable-og-image.ps1`
 
 ## Cloudflareで公開前に確認すること
 
@@ -38,3 +47,5 @@
 ## 本番反映後の確認
 
 ブラウザの開発者ツールまたは `curl -I https://drone.general-h.com/` で、少なくとも `Content-Security-Policy`、`X-Content-Type-Options`、`Referrer-Policy`、`Permissions-Policy` が返ることを確認します。404 URLでは独自ページとHTTP 404を確認します。
+
+上記の公開不要URLは403または404になり、`POST`・`PUT`・`DELETE`・`TRACE`などのGET／HEAD以外のメソッドは403になることも確認します。

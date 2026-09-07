@@ -5,6 +5,21 @@ ErrorDocument 404 /404.html
 # ディレクトリ内のファイル一覧を表示しません。
 Options -Indexes
 
+# Gitの内部情報、運用用の文書・スクリプト、設定ファイルは公開しません。
+# 公開フォルダーにリポジトリ全体を配置する場合にも適用されます。
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule (^|/)\.(?:git|hg|svn)(?:/|$) - [F,L,NC]
+  RewriteRule ^(?:README|SECURITY)(?:\.md)?$ - [F,L,NC]
+  RewriteRule (^|/)(?:tools|\.codex-remote-attachments)(?:/|$) - [F,L,NC]
+  RewriteRule \.(?:bak|conf|dist|env|ini|log|md|ps1|sh|sql|swp|ya?ml)$ - [F,L,NC]
+
+  # この公開サイトは読み取り専用です。予約フォームを自サイトで実装するまでは、
+  # GET と HEAD 以外のHTTPメソッドを受け付けません。
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$ [NC]
+  RewriteRule ^ - [F,L]
+</IfModule>
+
 # この静的サイトでは外部のスクリプト、フォント、iframe、フォーム送信を使用しません。
 # 将来、予約フォームを埋め込む／外部へ送信する場合は、該当の送信先だけを
 # form-action、frame-src、connect-src へ明示的に追加してください。
