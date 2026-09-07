@@ -1,4 +1,127 @@
-/* Layout refinements for the launch viewport. */
+/* Layout and launch palette refinements. */
 .hero h1 {
   font-size: clamp(2.45rem, 6vw, 4.2rem);
+}
+
+:root {
+  --ink: #163d35;
+  --charcoal: #155b4f;
+  --charcoal-deep: #0d4b42;
+  --teal: #119b70;
+  --teal-bright: #24d3c8;
+  --cyan: #20cfd1;
+  --mint: #e2faf0;
+  --paper: #f7fffb;
+  --line: #bedfd3;
+  --muted: #45675d;
+  --accent: #f2dc3b;
+}
+
+body {
+  background: var(--paper);
+}
+
+.hero {
+  color: var(--ink);
+  background: linear-gradient(126deg, #d7faef 0%, #f8fffc 56%, #c9f3e8 100%);
+}
+
+.hero::before {
+  background:
+    radial-gradient(circle at 70% 58%, rgb(32 207 209 / 20%), transparent 0 30%),
+    linear-gradient(90deg, rgb(17 155 112 / 9%) 1px, transparent 1px),
+    linear-gradient(0deg, rgb(17 155 112 / 8%) 1px, transparent 1px);
+  background-size: auto, 54px 54px, 54px 54px;
+}
+
+.hero .eyebrow,
+.hero-lead,
+.text-action {
+  color: var(--ink);
+}
+
+.button-outline {
+  color: var(--ink);
+  border-color: rgb(22 61 53 / 42%);
+}
+
+.hero-course-summary {
+  background: rgb(17 155 112 / 22%);
+}
+
+.hero-course-summary div {
+  background: rgb(255 255 255 / 76%);
+}
+
+.hero-course-summary span {
+  color: #087c60;
+}
+
+.hero-media {
+  color: var(--white);
+  border-color: rgb(17 155 112 / 36%);
+  background-color: #25bfae;
+}
+
+.hero-media::before {
+  background:
+    radial-gradient(circle at 54% 44%, rgb(255 255 255 / 28%), transparent 0 18%),
+    radial-gradient(circle at 54% 44%, transparent 0 31%, rgb(255 255 255 / 54%) 31.3% 31.8%, transparent 32%),
+    linear-gradient(145deg, transparent 20%, rgb(0 94 74 / 16%));
+}
+
+.drone-illustration::before,
+.drone-illustration::after {
+  border-color: #ecfffb;
+  box-shadow: 92px 0 0 -4px #25bfae, 92px 0 0 0 #ecfffb;
+}
+
+.drone-illustration::after {
+  box-shadow: 92px 0 0 -4px #25bfae, 92px 0 0 0 #ecfffb;
+}
+
+.drone-illustration em {
+  border-color: #ecfffb;
+  border-top: 0;
+}
+
+.quick-start {
+  background: #16b987;
+}
+
+.choice-card-business {
+  background: linear-gradient(135deg, #159b70, #16bcae);
+}
+
+.pricing-section {
+  background: linear-gradient(125deg, #0c8d68, #18ae8a);
+}
+
+.price-item {
+  background: rgb(255 255 255 / 13%);
+}
+
+.training-scenes {
+  color: var(--ink);
+  background: #d9f8ed;
+}
+
+.training-scenes .eyebrow,
+.scene-copy > p:not(.eyebrow),
+.training-scenes .light-link {
+  color: var(--teal);
+}
+
+.scene-small-one,
+.scene-small-two,
+.scene-large {
+  background-color: #22b39d;
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #0d7767, #129d79);
+}
+
+.site-footer {
+  background: #0c4b42;
 }
