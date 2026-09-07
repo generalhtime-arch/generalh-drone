@@ -161,6 +161,10 @@ body {
   background: linear-gradient(180deg, rgb(5 53 45 / 4%) 35%, rgb(5 53 45 / 56%));
 }
 
+.media-slot.has-image .drone-illustration {
+  display: none;
+}
+
 .hero-media {
   min-height: 0;
   aspect-ratio: 4 / 3;

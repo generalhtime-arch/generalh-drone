@@ -4,27 +4,27 @@
 
 ## 共通ルール
 
-- 写真は WebP を基本とし、用意できる場合は同じ構図の AVIF も配置します。
+- 写真は WebP を基本とします。AVIF を追加する場合は、WebP より前の `source` 要素として追加します。
 - `width` と `height` は下表のピクセル値を `img` 要素にも必ず指定します。CSS の `aspect-ratio` と併せ、画像読み込み前のレイアウトずれ（CLS）を抑えます。
 - すべての写真は `object-fit: cover` で枠を満たします。人物が写る場合は、顔や操縦中の手元が中央付近から外れない構図にします。
 - ファーストビューだけは `loading="eager" fetchpriority="high" decoding="async"` を使います。その他のページ内写真は `loading="lazy" decoding="async"` を使います。
-- `picture` では AVIF を先に、WebP を次に記述し、`img` の `src` は WebP にします。写真が入った際は `figure` に `has-image` クラスを追加します。
-- `img` は親の `figure` が画像の意味を `aria-label` で伝えるため `alt=""` にします。親の `aria-label` は下表の方向性を保ち、写真の実内容に合わせて具体化します。
+- `picture` の `srcset` では画面幅に合う WebP を選択します。写真が入った際は `figure` に `has-image` クラスを追加します。
+- 実写を表示する `img` には、写真の内容を具体的に示す `alt` を設定します。空の画像枠は、従来どおり親の `aria-label` で意味を伝えます。
 
 ## 画像台帳
 
 |用途・スロット|推奨ファイル名|表示比率|推奨書き出しサイズ|alt / aria-label の方向性|
 |---|---|---:|---:|---|
-|ファーストビュー `hero`|`assets/images/hero/drone-training-main.webp`|スマホ 4:3 / PC 1:1|1600 × 1200px|東京・上野校での実機ドローン講習の様子|
-|基本講習 `basic`|`assets/images/courses/basic-training.webp`|8:5|1600 × 1000px|基礎技能講習でドローンの基本操作を学ぶ様子|
-|応用講習A `advanced`|`assets/images/courses/advanced-training.webp`|8:5|1600 × 1000px|目視外飛行・夜間飛行の応用講習を学ぶ様子|
+|ファーストビュー `hero`|`assets/images/hero/drone-training-main.webp`|スマホ 4:3 / PC 1:1|1280 × 720px|体育館内でインストラクターの指導を受けながらドローンを操縦する受講者|
+|基本講習 `basic`|`assets/images/courses/basic-training.webp`|8:5|1280 × 800px|ドローンの機体を使って基礎を学ぶ座学講習|
+|応用講習A `advanced`|`assets/images/courses/advanced-training.webp`|8:5|1280 × 720px|屋内会場でドローンを操縦する受講者と指導者|
 |法人向け相談 `corporate`|`assets/images/courses/corporate-training.webp`|8:5|1600 × 1000px|法人向けドローン研修・活用相談の様子|
-|座学 `lecture`|`assets/images/training/classroom.webp`|4:3|1200 × 900px|ドローンの安全知識を学ぶ座学講習の様子|
-|シミュレータ `simulator`|`assets/images/training/simulator.webp`|4:3|1200 × 900px|シミュレータで操縦操作を練習する様子|
-|実機講習 `practical`|`assets/images/training/flight-practice.webp`|4:3|1200 × 900px|屋内で実機を使って基本操作を練習する様子|
-|受講イメージ大 `training`|`assets/images/training/flight-practice.webp`|8:5|1600 × 1000px|実機ドローン講習の様子|
-|受講イメージ小 `lecture-detail`|`assets/images/training/classroom.webp`|1:1|1200 × 1200px|座学講習の様子|
-|受講イメージ小 `practical-detail`|`assets/images/training/flight-practice.webp`|1:1|1200 × 1200px|実機講習の様子|
+|座学 `lecture`|`assets/images/training/classroom.webp`|4:3|960 × 720px|受講者にドローンの基礎知識を説明する講師|
+|シミュレータ `simulator`|`assets/images/training/simulator.webp`|4:3|960 × 720px|ドローンシミュレータで基本操作を練習する受講者|
+|実機講習 `practical`|`assets/images/training/flight-practice.webp`|4:3|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
+|受講イメージ大 `training`|`assets/images/training/flight-practice.webp`|8:5|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
+|受講イメージ小 `lecture-detail`|`assets/images/training/classroom.webp`|1:1|960 × 720px|受講者にドローンの基礎知識を説明する講師|
+|受講イメージ小 `practical-detail`|`assets/images/training/flight-practice.webp`|1:1|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
 |会場・アクセス `access`|`assets/images/access/school-exterior.webp`|トップ 4:5 / 下層 4:3|1600 × 1200px|ドローン教習所東京上野校の会場外観または講習スペース|
 
 `first-time`、`pricing`、`contact`、`company` の枠は、上表の基本講習・会場・講習風景の写真を再利用するか、同じ比率の追加写真を用意して差し替えます。実際の写真内容に合わせ、重複した同じ写真を多用しないようにします。
@@ -34,11 +34,14 @@
 空の `<picture class="media-picture" aria-hidden="true"></picture>` を、以下の形に差し替えます。`width` と `height` は該当スロットの `data-image-width`・`data-image-height` と同じ値にします。
 
 ```html
-<picture class="media-picture" aria-hidden="true">
-  <source srcset="/assets/images/training/classroom.avif" type="image/avif">
-  <source srcset="/assets/images/training/classroom.webp" type="image/webp">
-  <img src="/assets/images/training/classroom.webp" width="1200" height="900"
-       alt="" loading="lazy" decoding="async">
+<picture class="media-picture">
+  <source type="image/webp"
+          srcset="/assets/images/training/classroom-640.webp 640w,
+                  /assets/images/training/classroom.webp 960w"
+          sizes="(min-width: 720px) 30vw, calc(100vw - 40px)">
+  <img src="/assets/images/training/classroom.webp" width="960" height="720"
+       alt="受講者にドローンの基礎知識を説明する講師"
+       loading="lazy" decoding="async">
 </picture>
 ```
 
