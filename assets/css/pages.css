@@ -20,7 +20,7 @@
 .page-copy h3 { margin-top: 1.8rem; font-size: 1.18rem; }
 .page-copy p, .page-copy li { color: var(--muted); }
 .page-copy ul { padding-left: 1.25rem; }
-.page-visual { min-height: 265px; background-color: #24b9a5; }
+.page-visual { min-height: 0; background-color: #24b9a5; }
 .page-visual-dark { background-color: #1a8c78; }
 .page-visual-light { color: var(--ink); background-color: #c8f3e7; }
 .page-visual-light figcaption { color: var(--ink); }

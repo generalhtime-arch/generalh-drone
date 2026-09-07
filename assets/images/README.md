@@ -1,6 +1,6 @@
 # 実写画像の配置仕様
 
-実写素材が確定するまでは画像ファイルを追加せず、各 `figure.media-slot` の `data-image-path`・`data-image-width`・`data-image-height` を画像台帳として扱います。現行の色付き枠は、写真が未配置の間だけ表示するフォールバックです。
+各 `figure.media-slot` の `data-image-path`・`data-image-width`・`data-image-height` を画像台帳として扱います。実写が未配置の箇所では、実景と誤認されない抽象グラフィックまたは色付き枠をフォールバックとして使います。
 
 ## 共通ルール
 
@@ -18,14 +18,14 @@
 |ファーストビュー `hero`|`assets/images/hero/drone-training-main.webp`|スマホ 4:3 / PC 1:1|1280 × 720px|体育館内でインストラクターの指導を受けながらドローンを操縦する受講者|
 |基本講習 `basic`|`assets/images/courses/basic-training.webp`|8:5|1280 × 800px|ドローンの機体を使って基礎を学ぶ座学講習|
 |応用講習A `advanced`|`assets/images/courses/advanced-training.webp`|8:5|1280 × 720px|屋内会場でドローンを操縦する受講者と指導者|
-|法人向け相談 `corporate`|`assets/images/courses/corporate-training.webp`|8:5|1600 × 1000px|法人向けドローン研修・活用相談の様子|
+|法人向け相談 `corporate`|`assets/images/courses/corporate-training.webp`|8:5|1280 × 800px|法人向けドローン研修・活用相談を表す抽象グラフィック|
 |座学 `lecture`|`assets/images/training/classroom.webp`|4:3|960 × 720px|受講者にドローンの基礎知識を説明する講師|
 |シミュレータ `simulator`|`assets/images/training/simulator.webp`|4:3|960 × 720px|ドローンシミュレータで基本操作を練習する受講者|
 |実機講習 `practical`|`assets/images/training/flight-practice.webp`|4:3|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
 |受講イメージ大 `training`|`assets/images/training/flight-practice.webp`|8:5|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
 |受講イメージ小 `lecture-detail`|`assets/images/training/classroom.webp`|1:1|960 × 720px|受講者にドローンの基礎知識を説明する講師|
 |受講イメージ小 `practical-detail`|`assets/images/training/flight-practice.webp`|1:1|960 × 720px|屋内会場でドローンの実機を操縦する受講者と指導者|
-|会場・アクセス `access`|`assets/images/access/school-exterior.webp`|トップ 4:5 / 下層 4:3|1600 × 1200px|ドローン教習所東京上野校の会場外観または講習スペース|
+|会場・アクセス `access`|`assets/images/access/school-exterior.webp`|トップ 4:5 / 下層 4:3|1280 × 960px|会場・アクセスのご案内を表す抽象イラスト|
 
 `first-time`、`pricing`、`contact`、`company` の枠は、上表の基本講習・会場・講習風景の写真を再利用するか、同じ比率の追加写真を用意して差し替えます。実際の写真内容に合わせ、重複した同じ写真を多用しないようにします。
 
@@ -49,9 +49,9 @@
 
 ## OGP画像
 
-共通OGP画像の確定配置先は `assets/images/og/default.jpg` です。推奨サイズは 1200 × 630px、公開URLは `https://drone.general-h.com/assets/images/og/default.jpg` です。実画像が配置されるまでは `og:image` を出力しません。
+共通OGP画像の配置先は `assets/images/og/default.jpg` です。サイズは 1200 × 630px、公開URLは `https://drone.general-h.com/assets/images/og/default.jpg` です。編集用の元データは同じフォルダーの `default.svg` です。
 
-画像を配置後、ローカルWindows PCで `./tools/enable-og-image.ps1` を実行します。画像ファイルが存在しない限り、このスクリプトは失敗してHTMLを変更しません。全下層ページの `og:image` とサイズ情報を同じ値で追加します。
+画像の作成・差し替え後は、ローカルWindows PCで `./tools/enable-og-image.ps1` を実行します。全ページの `og:image` とサイズ情報を同じ値で追加します。
 
 追加される設定は次のとおりです。
 

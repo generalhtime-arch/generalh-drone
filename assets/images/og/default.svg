@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">ドローン教習所東京上野校</title>
+  <desc id="description">東京・上野のドローン講習を案内する共有用画像</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d4b42"/>
+      <stop offset="0.55" stop-color="#0b7161"/>
+      <stop offset="1" stop-color="#20cfd1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="43%" r="48%">
+      <stop offset="0" stop-color="#dffff7" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#dffff7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="58" height="58" patternUnits="userSpaceOnUse">
+      <path d="M58 0H0V58" fill="none" stroke="#dffff7" stroke-opacity="0.13"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <path d="M-56 518C194 361 315 553 560 439S903 196 1262 250" fill="none" stroke="#dffff7" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M-82 555C166 409 343 597 593 482S929 232 1280 293" fill="none" stroke="#f2dc3b" stroke-opacity="0.78" stroke-width="2"/>
+  <g transform="translate(889 165)" fill="none" stroke="#ecfffb" stroke-width="9" stroke-linecap="round">
+    <path d="M92 82 28 37M92 82l65-45M92 82 41 138M92 82l51 56"/>
+    <rect x="67" y="59" width="50" height="45" rx="15" fill="#ecfffb" stroke="none"/>
+    <circle cx="22" cy="34" r="19"/><circle cx="163" cy="34" r="19"/><circle cx="35" cy="143" r="19"/><circle cx="150" cy="143" r="19"/>
+    <path d="M82 105h20l-7 21H89z" fill="#0d4b42" stroke="none"/>
+  </g>
+  <g font-family="Yu Gothic, YuGothic, Noto Sans JP, sans-serif" fill="#fff">
+    <text x="90" y="132" font-size="24" font-weight="700" letter-spacing="2.4">GENERAL-H DRONE SCHOOL</text>
+    <text x="90" y="285" font-size="64" font-weight="700">東京・上野のドローン講習</text>
+    <text x="90" y="362" font-size="34" font-weight="600">ドローン教習所東京上野校</text>
+    <text x="90" y="461" font-size="25" font-weight="600" fill="#dffff7">基礎から学ぶ。目的に合わせて、次の一歩へ。</text>
+  </g>
+  <rect x="90" y="507" width="204" height="8" rx="4" fill="#f2dc3b"/>
+</svg>
