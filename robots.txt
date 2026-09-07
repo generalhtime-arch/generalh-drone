@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drone.general-h.com/sitemap.xml
