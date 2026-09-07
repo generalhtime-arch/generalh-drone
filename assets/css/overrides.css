@@ -125,3 +125,84 @@ body {
 .site-footer {
   background: #0c4b42;
 }
+
+/*
+ * Photo-ready media slots. The empty picture element keeps the current
+ * art-directed fallback visible until approved photography is supplied.
+ * When a picture is added, its intrinsic width and height reserve the same
+ * layout space and the image fills the established crop without distortion.
+ */
+.media-slot {
+  min-height: 0;
+  aspect-ratio: var(--media-ratio, 4 / 3);
+}
+
+.media-picture {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  display: block;
+}
+
+.media-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--image-position, 50% 50%);
+}
+
+.media-slot figcaption {
+  position: relative;
+  z-index: 1;
+}
+
+.media-slot.has-image::before {
+  background: linear-gradient(180deg, rgb(5 53 45 / 4%) 35%, rgb(5 53 45 / 56%));
+}
+
+.hero-media {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  --image-position: 54% 50%;
+}
+
+.course-media,
+.page-visual {
+  min-height: 0;
+  aspect-ratio: 8 / 5;
+}
+
+.step-media {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.scene-large {
+  min-height: 0;
+  aspect-ratio: 8 / 5;
+}
+
+.scene-small-one,
+.scene-small-two {
+  min-height: 0;
+  aspect-ratio: 1;
+}
+
+.access-media,
+.page-visual[data-image-slot="access"] {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 720px) {
+  .hero-media {
+    min-height: 0;
+    aspect-ratio: 1;
+  }
+
+  .access-media {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+}
