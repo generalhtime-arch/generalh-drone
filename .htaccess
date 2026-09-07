@@ -1,0 +1,3 @@
+# CORESERVER (Apache) 用: 存在しないURLに独自404ページを返します。
+# ErrorDocument の内部処理では元の HTTP 404 ステータスが維持されます。
+ErrorDocument 404 /404.html
