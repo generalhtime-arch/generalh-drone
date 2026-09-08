@@ -52,3 +52,9 @@
 ブラウザの開発者ツールまたは `curl -I https://drone.general-h.com/` で、少なくとも `Content-Security-Policy`、`X-Content-Type-Options`、`Referrer-Policy`、`Permissions-Policy` が返ることを確認します。404 URLでは独自ページとHTTP 404を確認します。
 
 上記の公開不要URLは403または404になり、`POST`・`PUT`・`DELETE`・`TRACE`などのGET／HEAD以外のメソッドは403になることも確認します。
+
+公開後の再確認は、リポジトリ内の次の読み取り専用スクリプトでも行えます。`tools/` 自体はWebから拒否するため、公開対象にはなりません。
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\verify-production-security.ps1
+```
