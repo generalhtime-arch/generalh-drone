@@ -297,3 +297,18 @@ body {
     aspect-ratio: 4 / 5;
   }
 }
+
+.contact-method-label {
+  margin-bottom: .8rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.contact-copy .contact-methods .button-outline {
+  color: var(--white);
+  border-color: rgb(255 255 255 / 55%);
+}
