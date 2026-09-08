@@ -12,8 +12,10 @@
 - クリックジャッキング防止（フレームへの埋め込みを拒否）
 - MIMEタイプ推測の無効化
 - 不要なブラウザ機能（カメラ、マイク、位置情報、決済など）の無効化
+- クロスオリジンからのアセット読込みを制限
+- サーバー実装を示す不要なレスポンスヘッダーの抑制
 - リファラー情報の最小化
-- `.git`、`.env`、README、SECURITY、`tools/`、作業用添付フォルダーなどの公開拒否
+- `.git`、`.env`、README、SECURITY、`tools/`、作業用添付フォルダー、バックアップファイルなどの公開拒否
 - GET／HEAD以外のHTTPメソッドの拒否
 
 本番サーバーが `mod_headers` を利用できない場合でも、ヘッダー設定部分は安全に読み飛ばされます。その場合は、CORESERVERまたはCloudflare側で同じレスポンスヘッダーを設定します。
@@ -24,6 +26,7 @@
 - `https://drone.general-h.com/README.md`
 - `https://drone.general-h.com/SECURITY.md`
 - `https://drone.general-h.com/tools/enable-og-image.ps1`
+- `https://drone.general-h.com/index.coreserver-backup.html`
 
 ## Cloudflareで公開前に確認すること
 
