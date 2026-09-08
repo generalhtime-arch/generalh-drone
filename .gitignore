@@ -1,2 +1,5 @@
 # Codex conversation attachments are local working material, not site assets.
 .codex-remote-attachments/
+
+# Pre-existing CORESERVER backup; retained on the server but never versioned or deployed.
+index.coreserver-backup.html
