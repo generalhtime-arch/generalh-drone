@@ -4,7 +4,7 @@
   document.documentElement.classList.add("js");
 
   const menuButton = document.querySelector("[data-menu-button]");
-  const navigation = document.querySelector("[data-site-nav]");
+  const navigation = document.querySelector("[data-site-nav], #site-navigation");
 
   if (menuButton && navigation) {
     const closeMenu = () => {
@@ -38,12 +38,17 @@
     if (Number.isFinite(endAt) && Date.now() > endAt) notice.remove();
   });
 
-  // 将来の予約フォームURLはここで一元管理します。予約導入時に null をURLへ変更し、
-  // data-reservation-cta 属性を持つリンクへ設定すれば、ページごとの改修を抑えられます。
-  const bookingUrl = null;
-  if (bookingUrl) {
-    document.querySelectorAll("[data-reservation-cta]").forEach((link) => {
-      link.href = bookingUrl;
-    });
-  }
+  // 予約フォームURLはここで一元管理します。通常リンクにすることで、資格状況に応じた
+  // 分岐フォームを別サイト側で安全に運用できます。
+  const bookingUrl = "https://booking-v2.general-h.com/drone/";
+  document.querySelectorAll("[data-reservation-cta]").forEach((link) => {
+    link.href = bookingUrl;
+  });
+
+  // 全ページのヘッダーから、同じ予約フォームへ到達できるようにします。
+  document.querySelectorAll(".site-nav .button-primary").forEach((link) => {
+    link.href = bookingUrl;
+    link.textContent = "講習を予約する";
+    link.setAttribute("aria-label", "講習を予約する（予約フォームへ）");
+  });
 })();
