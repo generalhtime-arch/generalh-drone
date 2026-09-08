@@ -14,6 +14,10 @@ CSSとJavaScriptはクエリ文字列方式でバージョン管理していま�
 
 `public_html` の直下へ `.htaccess` と `404.html` を配置します。`.htaccess` の `ErrorDocument 404 /404.html` により、存在しないURLでも独自404画面を表示し、HTTPステータス404を維持します。公開後は実URLで応答ヘッダーを確認してください。
 
+## 社内検査中の noindex
+
+社内検査中は `.htaccess` が `X-Robots-Tag: noindex` を返します。お客様向けの本公開前に、この設定を削除して検索エンジンの登録を許可してください。
+
 ## 公開の流れ
 
 1. GitHub上で `feature/initial-site` の差分を確認する。
