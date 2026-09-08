@@ -31,6 +31,13 @@
     element.textContent = new Date().getFullYear();
   });
 
+  // 開校告知は指定日時を過ぎると自動で非表示にします。
+  // 表示期間を延長する場合は、HTML の data-launch-end を更新してください。
+  document.querySelectorAll("[data-launch-notice]").forEach((notice) => {
+    const endAt = Date.parse(notice.dataset.launchEnd || "");
+    if (Number.isFinite(endAt) && Date.now() > endAt) notice.remove();
+  });
+
   // 将来の予約フォームURLはここで一元管理します。予約導入時に null をURLへ変更し、
   // data-reservation-cta 属性を持つリンクへ設定すれば、ページごとの改修を抑えられます。
   const bookingUrl = null;

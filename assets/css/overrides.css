@@ -126,6 +126,89 @@ body {
   background: #0c4b42;
 }
 
+.launch-notice {
+  color: var(--ink);
+  background: #f2dc3b;
+}
+
+.launch-notice-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem 0;
+  font-size: .88rem;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.launch-notice strong {
+  display: inline-block;
+  margin-right: .45rem;
+}
+
+.launch-notice a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.national-course-card {
+  background: linear-gradient(135deg, #0d7767, #19a58b);
+  color: var(--white);
+}
+
+.national-course-card .card-label,
+.national-course-card .choice-content > p:not(.card-label) {
+  color: #d9fff4;
+}
+
+.national-course-card .course-media {
+  background-color: #087b78;
+}
+
+.fee-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--white);
+  -webkit-overflow-scrolling: touch;
+}
+
+.fee-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+
+.fee-table th,
+.fee-table td {
+  padding: .9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.fee-table th {
+  color: var(--ink);
+  background: var(--mint);
+  font-weight: 900;
+}
+
+.fee-table td:last-child {
+  color: var(--teal);
+  font-size: 1rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.fee-note {
+  margin: .9rem 0 0;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
 /*
  * Photo-ready media slots. The empty picture element keeps the current
  * art-directed fallback visible until approved photography is supplied.
@@ -200,6 +283,10 @@ body {
 }
 
 @media (min-width: 720px) {
+  .quick-start-inner {
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+  }
+
   .hero-media {
     min-height: 0;
     aspect-ratio: 1;
